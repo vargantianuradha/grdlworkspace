@@ -1,11 +1,11 @@
 buildscript {
     repositories {
         jcenter()
-        
+
     }
     dependencies {
         //Check for the latest version here: http://plugins.gradle.org/plugin/com.jfrog.artifactory
-        classpath "org.jfrog.buildinfo:build-info-extractor-gradle:4+"
+        classpath "org.jfrog.buildinfo:build-info-extractor-gradle:4.4.0"
     }
 }
 
@@ -15,13 +15,12 @@ allprojects {
 
 artifactory {
     contextUrl = "http://52.91.146.229:8082/artifactory/"   //The base Artifactory URL if not overridden by the publisher/resolver
-       publish {
-           repository {
+    publish {
+        repository {
             repoKey = 'gradle-dev-local'
             username = "admin"
             password = "Admin_20"
-            maven = true
-            
+
         }
     }
     resolve {
@@ -30,7 +29,7 @@ artifactory {
             username = "admin"
             password = "Admin_20"
             maven = true
-            
+
         }
     }
 }
